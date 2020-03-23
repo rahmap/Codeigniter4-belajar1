@@ -33,13 +33,15 @@ $routes->setAutoRoute(true);
 
 $routes->group('/', function($routes) 
 {
-	$routes->get('home', 'Home::index');
+	$routes->get('home', 'Home::index', ['as' => 'home']);
 	$routes->get('about', 'Home::about', ['as' => 'about']);
 	$routes->get('contact', 'Home::contact', ['as' => 'contact']);
 
 	$routes->group('auth', function($routes)
 	{
-		$routes->get('/', 'Auth::login');
+		$routes->add('/', function(){
+			return redirect()->route('login');
+		});
 		$routes->get('sign-in', 'Auth::login', ['as' => 'login']);
 		$routes->get('sign-up', 'Auth::register', ['as' => 'register']);
 		$routes->get('log-out', 'Auth::logout', ['as' => 'logout']);

@@ -10,7 +10,7 @@ class Auth extends BaseController
 
 	public function index()
 	{
-    redirect()->route('login');
+    return redirect()->route('login');
   }
   
 	public function login()
@@ -31,10 +31,32 @@ class Auth extends BaseController
 
 	public function register()
 	{
+		$data1 = [
+			'nama' => 'asdsdad das',
+			'email' => 'asd@asd.com',
+			'password' => '123asd',
+			'password1' => '123asd'
+		];
+
 		$data = [
 			'title' => 'Register'
 		];
-		return view('login', $data);
+		
+
+		if ($this->request->getPost()) {
+
+				if (!$this->validate('signup')) {
+					return view('register', [
+						'title' => 'Register',
+						'validation' => $this->validator
+					]);
+				} else {
+					return redirect()->route('home');
+				}
+		} else {
+			return view('register', $data);
+		}
+						
   }
 
 	public function logout()

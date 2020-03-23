@@ -33,4 +33,24 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+
+	public $signup = [
+		'nama'     => 'required|max_length[100]|min_length[6]|alpha_space',
+		'password'     => 'required|min_length[6]',
+		'password1' => 'matches[password]',
+		'email'        => 'required|valid_email|is_unique[member.member_email]'
+	];
+
+	public $signup_errors = [
+			'nama' => [
+					'required' => 'Isi nama anda.',
+			],
+			'email' => [
+					'valid_email' => 'Email tidak valid.'
+			],
+			'password1' => [
+					'matches' => 'Password konfirmasi tidak sama.'
+			]
+	];
+
 }

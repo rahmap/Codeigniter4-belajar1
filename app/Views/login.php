@@ -28,7 +28,7 @@ Login Page <?= APP_NAME ?>
                                   <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
                               </div>
 
-                              <div class="row">
+                              <!-- <div class="row">
                                   <div class="col-md-6">
                                       <div class="custom-control custom-checkbox">
                                           <input type="checkbox" class="custom-control-input" id="customControlInline">
@@ -40,7 +40,7 @@ Login Page <?= APP_NAME ?>
                                           <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
                                       </div>
                                   </div>
-                              </div>
+                              </div> -->
                               <div class="mt-4">
                                   <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Log In</button>
                               </div>
