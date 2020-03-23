@@ -15,6 +15,7 @@ namespace App\Controllers;
  */
 
 use CodeIgniter\Controller;
+use App\Libraries\FreeLib;
 
 class BaseController extends Controller
 {
@@ -29,6 +30,7 @@ class BaseController extends Controller
 	protected $helpers = [];
 	protected $session;
 	protected $validation;
+	protected $free;
 
 	/**
 	 * Constructor.
@@ -44,10 +46,11 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		
-		helper(['form', 'url']);
+		helper(['form', 'url', 'session']);
 
 		$this->session = \Config\Services::session();
 		$this->validation =  \Config\Services::validation();
+		$this->free = new FreeLib();
 		
 	}
 

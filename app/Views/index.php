@@ -12,9 +12,11 @@
   <link rel="stylesheet" href="<?= base_url('') ?>/pingendo/wireframe.css">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" integrity="sha256-nbyata2PJRjImhByQzik2ot6gSHSU4Cqdz5bNYL2zcU=" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 
 <body>
+<?= (session()->has('message'))? session()->message : '' ?>
   <div class="collapse bg-dark" id="navbarHeader" style="">
     <div class="container">
       <div class="row">
@@ -51,9 +53,14 @@
           <li class="nav-item"> <a class="nav-link" href="<?= route_to('home') ?>">Home</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?= route_to('contact') ?>">Contact</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?= route_to('about') ?>">About</a> </li>
-        </ul> 
+        </ul>
+        <?php if(session()->has('user_id')){ ?>
+        <a href="<?= route_to('dashboard') ?>" class="btn navbar-btn ml-md-2 btn-warning">Dashboard</a>
+        <a href="<?= route_to('logout') ?>" class="btn navbar-btn ml-md-2 btn-primary">Logout</a>
+        <?php } else { ?> 
         <a href="<?= route_to('login') ?>" class="btn navbar-btn ml-md-2 btn-warning">Login</a>
         <a href="<?= route_to('register') ?>" class="btn navbar-btn ml-md-2 btn-primary">Register</a>
+        <?php } ?> 
       </div>
     </div>
   </nav>

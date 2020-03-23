@@ -19,6 +19,7 @@ Register Page <?= APP_NAME ?>
 
                         <div class="row">
                             <div class="col-md-12">
+                                <?= csrf_field() ?>
                                 <div class="form-group mb-4">
                                     <label for="username">Nama</label>
                                     <input type="text" class="form-control <?= (\Config\Services::validation()->getError('nama'))? 'is-invalid' : '' ; ?>" name="nama" id="username" value="<?= set_value('nama') ?>" placeholder="Masukkan Nama">

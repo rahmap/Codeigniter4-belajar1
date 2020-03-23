@@ -50,11 +50,7 @@ $routes->group('/', function($routes)
 
 $routes->group('dashboard', function($routes)
 {
-	$routes->group('admin', function($routes)
-	{
-		$routes->add('/', 'Admin::index');
-	});
-	
+	$routes->add('/', 'Dashboard::index', ['as' => 'dashboard']);
 	//Member
 });
 
